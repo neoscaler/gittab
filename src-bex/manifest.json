@@ -17,6 +17,10 @@
     "*://*/*"
   ],
 
+  "chrome_url_overrides" : {
+    "newtab": "www/index.html"
+  },
+
   "action": {},
 
   "background": {
