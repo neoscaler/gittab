@@ -1,49 +1,30 @@
 <template>
   <q-page class="row items-center justify-evenly">
-    <example-component
-      title="Example component"
+    <recent-activity
+      title="GitLab History"
       active
-      :todos="todos"
-      :meta="meta"
-    ></example-component>
+      :historyItems="historyItems"
+    ></recent-activity>
   </q-page>
 </template>
 
 <script lang="ts">
-import { Todo, Meta } from 'components/models';
-import ExampleComponent from 'components/ExampleComponent.vue';
+import { HistoryItem } from 'components/models';
+import RecentActivity from 'components/RecentActivity.vue';
 import { defineComponent, ref } from 'vue';
 
 export default defineComponent({
   name: 'IndexPage',
-  components: { ExampleComponent },
+  components: { RecentActivity },
   setup () {
-    const todos = ref<Todo[]>([
-      {
-        id: 1,
-        content: 'ct1'
-      },
-      {
-        id: 2,
-        content: 'ct2'
-      },
-      {
-        id: 3,
-        content: 'ct3'
-      },
-      {
-        id: 4,
-        content: 'ct4'
-      },
-      {
-        id: 5,
-        content: 'ct5'
-      }
+    const historyItems = ref<HistoryItem[]>([
+      { id: 1, title: 'Test MR', url: 'http://test.de', lastVisitTime: 1 },
+      { id: 2, title: 'Test MR 2', url: 'http://test.de', lastVisitTime: 1 },
     ]);
-    const meta = ref<Meta>({
-      totalCount: 1200
-    });
-    return { todos, meta };
+
+    // TODO Populate HistoryItems from Chrome API
+
+    return { historyItems };
   }
 });
 </script>
