@@ -38,6 +38,8 @@
       <router-view />
     </q-page-container>
 
+       <q-btn label="Communicate" @click="loadHistory" />
+
   </q-layout>
 </template>
 

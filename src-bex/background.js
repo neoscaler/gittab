@@ -45,6 +45,16 @@ export default function (bridge /* , allActiveConnections */) {
     })
   })
 
+  bridge.on('history.search', event => {
+    const payload = event.data
+    chrome.history.search({
+      'text': 'github',               // Return every history item....
+      'maxResults': 100         // Optionally state a limit
+    }, () => {
+      bridge.send(event.eventResponseKey, payload.data)
+    })
+  })
+
   /*
   // EXAMPLES
   // Listen to a message from the client
