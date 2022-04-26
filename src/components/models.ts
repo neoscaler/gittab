@@ -1,6 +1,7 @@
-export interface HistoryItem {
+export interface MrHistoryItem {
   id: number;
-  title: string;
+  repo: string;
+  name: string;
   url: string;
   lastVisitTime: number;
 }
