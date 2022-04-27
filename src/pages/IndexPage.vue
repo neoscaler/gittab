@@ -3,7 +3,7 @@
 
   <div class="row items-start justify-center">
     <div class="col-3">
-      <q-page class="row">
+      <q-page class="row" style="height: 95%">
         <recent-activity
           title="GitLab MR History"
           active
@@ -24,7 +24,6 @@
       </q-page>
     </div>
   </div>
-
 
 </template>
 

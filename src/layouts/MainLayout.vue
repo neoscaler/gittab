@@ -14,7 +14,7 @@
       </q-toolbar>
     </q-header>
 
-    <q-drawer v-model="drawer" show-if-above :width="200" :breakpoint="500" bordered class="bg-secondary">
+    <q-drawer v-model="drawer" show-if-above :width="200" :breakpoint="500" bordered class="bg-primary text-white">
       <q-scroll-area class="fit">
         <q-list>
 
@@ -34,11 +34,9 @@
       </q-scroll-area>
     </q-drawer>
 
-    <q-page-container>
+    <q-page-container class="bg-secondary text-primary">
       <router-view />
     </q-page-container>
-
-       <q-btn label="Communicate" @click="loadHistory" />
 
   </q-layout>
 </template>
@@ -65,7 +63,7 @@ const menuList = [
 ]
 
 export default {
-  setup () {
+  setup() {
     return {
       drawer: ref(false),
       menuList
