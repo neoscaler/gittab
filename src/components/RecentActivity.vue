@@ -1,22 +1,16 @@
 <template>
   <div class="q-pa-md">
-     <div class="q-gutter-y-md" style="max-width: 400px">
-    <q-tabs
-        v-model="tab"
-        narrow-indicator
-        dense
-        no-caps
-        align="justify"
-        class="text-primary"
-      >
+    <div class="q-gutter-y-md" style="max-width: 400px">
+      <q-tabs v-model="tab" narrow-indicator dense no-caps align="justify" class="text-primary">
         <q-tab name="github" icon="fa-brands fa-github" label="GitHub" />
         <q-tab name="gitlab" icon="fa-brands fa-gitlab" label="GitLab" />
-    </q-tabs>
+      </q-tabs>
     </div>
 
     <q-list padding separator>
 
-      <q-item clickable v-ripple v-for="historyItem in historyItems" :key="historyItem.id" @click="openSite(historyItem.url)">
+      <q-item clickable v-ripple v-for="historyItem in historyItems" :key="historyItem.id"
+        @click="openSite(historyItem.url)">
         <q-item-section>
           <q-item-label>{{ historyItem.repo }}</q-item-label>
           <q-item-label caption>{{ historyItem.name }}</q-item-label>
@@ -55,9 +49,9 @@ export default defineComponent({
     }
   },
   methods: {
-   openSite: function (url: string) {
-     openURL(url);
-   }
- }
+    openSite: function (url: string) {
+      openURL(url);
+    }
+  }
 });
 </script>
