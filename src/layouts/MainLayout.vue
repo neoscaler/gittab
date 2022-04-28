@@ -22,7 +22,7 @@
       </q-toolbar>
     </q-header>
 
-    <q-drawer v-model="drawer" show-if-above :width="200" :breakpoint="500" bordered class="bg-primary text-white">
+    <q-drawer v-model="drawer" :width="200" :breakpoint="500" bordered class="bg-primary text-white">
       <q-scroll-area class="fit">
         <q-list>
 
