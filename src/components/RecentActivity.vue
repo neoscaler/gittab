@@ -1,17 +1,9 @@
 <template>
   <div class="q-pa-sm" style="width:100%">
-    <div class="q-gutter-y-md">
-      <q-tabs v-model="tab" narrow-indicator dense no-caps align="justify" class="text-primary">
-        <q-tab name="github" icon="fa-brands fa-github" label="GitHub" />
-        <q-tab name="gitlab" icon="fa-brands fa-gitlab" label="GitLab" />
-      </q-tabs>
-    </div>
+    <div class="text-h5 q-py-md text-info">{{ title }}</div>
 
-    <q-scroll-area
-      style="height: 92%;"
-    >
-      <q-list padding separator>
-
+    <q-scroll-area style="height: 92%;">
+      <q-list separator>
         <q-item class="q-py-md" clickable v-ripple v-for="historyItem in historyItems" :key="historyItem.id"
           @click="openSite(historyItem.url)">
           <q-item-section>
@@ -22,7 +14,7 @@
             <q-item-label caption class="q-py-sm">5 min ago</q-item-label>
             <q-item-label caption class="text-negative">MR !{{ historyItem.id }}</q-item-label>
           </q-item-section>
-        </q-item>
+          </q-item>
 
       </q-list>
     </q-scroll-area>

@@ -1,4 +1,3 @@
-
 <template>
 
   <div class="row items-start justify-center">

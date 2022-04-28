@@ -11,6 +11,14 @@
           </q-avatar>
           gittab
         </q-toolbar-title>
+
+        <q-space/>
+
+        <q-tabs v-model="tab" shrink narrow-indicator dense no-caps>
+          <q-tab name="github" icon="fa-brands fa-github" label="GitHub" />
+          <q-tab name="gitlab" icon="fa-brands fa-gitlab" label="GitLab" />
+        </q-tabs>
+
       </q-toolbar>
     </q-header>
 
