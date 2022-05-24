@@ -1,49 +1,65 @@
 <template>
-  <q-page class="row items-center justify-evenly">
-    <example-component
-      title="Example component"
-      active
-      :todos="todos"
-      :meta="meta"
-    ></example-component>
-  </q-page>
+
+  <div class="row items-start justify-center">
+    <div class="col-3">
+      <q-page class="row" style="height: 95%">
+        <recent-activity
+          title="GitLab MR History"
+          active
+          :historyItems="historyItems"
+        ></recent-activity>
+      </q-page>
+    </div>
+    <div class="col-6">
+
+    </div>
+    <div class="col-3">
+      <q-page class="row">
+        <recent-activity
+          title="GitLab Issue History"
+          active
+          :historyItems="historyItems"
+        ></recent-activity>
+      </q-page>
+    </div>
+  </div>
+
 </template>
 
 <script lang="ts">
-import { Todo, Meta } from 'components/models';
-import ExampleComponent from 'components/ExampleComponent.vue';
+import { MrHistoryItem } from 'components/models';
+import RecentActivity from 'components/RecentActivity.vue';
 import { defineComponent, ref } from 'vue';
+import HistoryService from '../services/history';
 
 export default defineComponent({
   name: 'IndexPage',
-  components: { ExampleComponent },
+  components: { RecentActivity },
   setup () {
-    const todos = ref<Todo[]>([
-      {
-        id: 1,
-        content: 'ct1'
-      },
-      {
-        id: 2,
-        content: 'ct2'
-      },
-      {
-        id: 3,
-        content: 'ct3'
-      },
-      {
-        id: 4,
-        content: 'ct4'
-      },
-      {
-        id: 5,
-        content: 'ct5'
-      }
+    const historyItems = ref<MrHistoryItem[]>([
+      { id: 1, repo: 'gittab', name: 'Create initial MR support', url: 'http://test.de', lastVisitTime: 1 },
+      { id: 2, repo: 'akhq', name: 'Add support for tombstones visa Produce to topic', url: 'http://test.de', lastVisitTime: 1 },
+            { id: 1, repo: 'gittab', name: 'Create initial MR support', url: 'http://test.de', lastVisitTime: 1 },
+      { id: 2, repo: 'akhq', name: 'Add support for tombstones visa Produce to topic', url: 'http://test.de', lastVisitTime: 1 },
+            { id: 1, repo: 'gittab', name: 'Create initial MR support', url: 'http://test.de', lastVisitTime: 1 },
+      { id: 2, repo: 'akhq', name: 'Add support for tombstones visa Produce to topic', url: 'http://test.de', lastVisitTime: 1 },
+            { id: 1, repo: 'gittab', name: 'Create initial MR support', url: 'http://test.de', lastVisitTime: 1 },
+      { id: 2, repo: 'akhq', name: 'Add support for tombstones visa Produce to topic', url: 'http://test.de', lastVisitTime: 1 },
+            { id: 1, repo: 'gittab', name: 'Create initial MR support', url: 'http://test.de', lastVisitTime: 1 },
+      { id: 2, repo: 'akhq', name: 'Add support for tombstones visa Produce to topic', url: 'http://test.de', lastVisitTime: 1 },
+            { id: 1, repo: 'gittab', name: 'Create initial MR support', url: 'http://test.de', lastVisitTime: 1 },
+      { id: 2, repo: 'akhq', name: 'Add support for tombstones visa Produce to topic', url: 'http://test.de', lastVisitTime: 1 },
     ]);
-    const meta = ref<Meta>({
-      totalCount: 1200
-    });
-    return { todos, meta };
+
+    // TODO Populate HistoryItems from Chrome API
+    //HistoryService.getHistory();
+
+    return { historyItems };
+  },
+  test() {
+    this.$q.bex.send('history.search', {}).then(event => {
+      return event.data
+    })
   }
 });
 </script>

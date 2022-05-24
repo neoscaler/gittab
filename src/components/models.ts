@@ -1,8 +1,7 @@
-export interface Todo {
+export interface MrHistoryItem {
   id: number;
-  content: string;
-}
-
-export interface Meta {
-  totalCount: number;
+  repo: string;
+  name: string;
+  url: string;
+  lastVisitTime: number;
 }
