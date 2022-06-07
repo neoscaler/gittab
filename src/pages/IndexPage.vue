@@ -53,7 +53,10 @@ export default defineComponent({
       { id: 2, repo: 'akhq', name: 'Add support for tombstones visa Produce to topic', url: 'http://test.de', lastVisitTime: 1 },
     ]);
 
-    $q.bex.send('history.search')
+    $q.bex.send('history.search', {}).then(response => {
+      console.log('Some response from the other side');
+      console.log(response);
+    });
 
     return { historyItems };
 
