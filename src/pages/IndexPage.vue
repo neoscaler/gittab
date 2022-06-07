@@ -30,12 +30,14 @@
 import { MrHistoryItem } from 'components/models';
 import RecentActivity from 'components/RecentActivity.vue';
 import { defineComponent, ref } from 'vue';
-import HistoryService from '../services/history';
+import { useQuasar } from 'quasar'
 
 export default defineComponent({
   name: 'IndexPage',
   components: { RecentActivity },
   setup () {
+    const $q = useQuasar();
+
     const historyItems = ref<MrHistoryItem[]>([
       { id: 1, repo: 'gittab', name: 'Create initial MR support', url: 'http://test.de', lastVisitTime: 1 },
       { id: 2, repo: 'akhq', name: 'Add support for tombstones visa Produce to topic', url: 'http://test.de', lastVisitTime: 1 },
@@ -51,15 +53,12 @@ export default defineComponent({
       { id: 2, repo: 'akhq', name: 'Add support for tombstones visa Produce to topic', url: 'http://test.de', lastVisitTime: 1 },
     ]);
 
-    // TODO Populate HistoryItems from Chrome API
-    //HistoryService.getHistory();
-
-    return { historyItems };
-  },
-  test() {
-    this.$q.bex.send('history.search', {}).then(event => {
+    return $q.bex.send('history.search').then(event => {
       return event.data
     })
+
+    //return { historyItems };
+
   }
 });
 </script>

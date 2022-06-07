@@ -13,6 +13,7 @@ chrome.runtime.onInstalled.addListener(() => {
 
 export default function (bridge /* , allActiveConnections */) {
   bridge.on('storage.get', event => {
+    console.log('BRIDGE!')
     const payload = event.data
     if (payload.key === null) {
       chrome.storage.local.get(null, r => {
@@ -47,6 +48,7 @@ export default function (bridge /* , allActiveConnections */) {
 
   bridge.on('history.search', event => {
     const payload = event.data
+    console.log('BRIDGE!')
     chrome.history.search({
       'text': 'github',               // Return every history item....
       'maxResults': 100         // Optionally state a limit

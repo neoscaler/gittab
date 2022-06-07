@@ -48,6 +48,11 @@ export default defineComponent({
   methods: {
     openSite: function (url: string) {
       openURL(url);
+    },
+    created () {
+      this.$q.bex.send('history.search', {}).then(event => {
+        return event.data
+      })
     }
   }
 });
