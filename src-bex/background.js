@@ -13,7 +13,6 @@ chrome.runtime.onInstalled.addListener(() => {
 
 export default function (bridge /* , allActiveConnections */) {
   bridge.on('storage.get', event => {
-    console.log('BRIDGE!')
     const payload = event.data
     if (payload.key === null) {
       chrome.storage.local.get(null, r => {
