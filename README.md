@@ -1,6 +1,6 @@
 # gittab (de.neoscale.gittab)
 
-Developer new tab
+Developer new tab for developers using GitHub and/or GitLab.
 
 ## Install the dependencies
 ```bash
